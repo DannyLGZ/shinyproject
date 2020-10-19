@@ -26,10 +26,10 @@ shinyUI(dashboardPage(skin = 'green',
             <p><center><font size="4">by Ling Ge Zeng</font></center></p>
 
             <p><pre><center><font size="4">
-            <b>Objective</b>: The purpose of this project is to visualize the return of interest of SP500 and FAANG stocks from 2010 to 2020. Facebook(FB),
-            Apple(AAPL), Amazon(AMZN), Netflix(NFLX), and Alphabet(GOOG) are often used to represent the US economy and have risen so much
-            among all other stocks. The project helps us to understand the correlation of SP500 and FAANG, FAANG stocks to each other.
-            Besides, look into quaterly earning reports of each FAANG stocks, seeing the relationship of earning reports drive the stock price.  
+            <b>Objective</b>: The purpose of this project is to visualize the return of interest of SP500 and FAANG stocks from 2010 to 2020. 
+            Facebook(FB),Apple(AAPL), Amazon(AMZN), Netflix(NFLX), and Alphabet(GOOG), are used to represent the US economy and have risen so 
+            much among all other stocks. This project helps us to understand the correlation of SP500 and FAANG, the interrelation among FAANG 
+            stocks, and how quaterly earning reports affect the stock prices.  
             </font></center></pre></p>
             
             
@@ -46,13 +46,13 @@ shinyUI(dashboardPage(skin = 'green',
             <td style="width: 700px;">Introduction page.</td>
             </tr>
             <tr>
-            <td style="width: 300;"><b>Analysis<br>  -Graph<br><br>  -Correlation</b></td>
+            <td style="width: 300;"><b>Analysis<br>  -- Graph<br><br>  -- Correlation</b></td>
             <td style="width: 700;">Comparing SP500 with FAANG<br>graph_1:stock price with earning date, green line means beat, red means miss.
             <br>graph_2:return of interest.<br>Correlation: shows correlation with each stocks.</td>
             </tr>
             <tr>
             <td style="width: 300;"><b>Data</b></td>
-            <td style="width: 700;">Other data visualizations and insights.</td>
+            <td style="width: 700;">Dataset of stock price.</td>
             </tr>
             <tr>
             <td style="width: 300;"><b>About</b></td>
@@ -120,7 +120,7 @@ shinyUI(dashboardPage(skin = 'green',
                               </p>
                               <p>I am so interested in data science because number can tell me story which I never think about.</p>
                               <p><a href="https://www.linkedin.com/in/lingge-danny-zeng-a6aa4350/>LinkedIn</a></p>
-                              <p><a href="https://github.com/DannyLGZ/shinyproject">R Shiny Project Code</a></p>
+                              <p><a href="https://github.com/DannyLGZ/shinyproject">Shiny Project Code</a></p>
                               <p>E-mail: linggezeng@gmail.com</font></p>
                               <p><br></p>'))
 
