@@ -28,10 +28,3 @@ earning %>% mutate(beat_perc = round(beat_up/(beat_up + beat_down)*100,3),miss_p
 earning_beat_perc = MyDat %>% group_by(symbol) %>% filter(Beat_Miss=='Beat') %>% mutate(diff= round((price2- price)/price*100,3))
 earning_miss_perc = MyDat %>% group_by(symbol) %>% filter(Beat_Miss=='Miss') %>% mutate(diff= round((price2- price)/price*100,3))
 earning_perc = full_join(earning_beat_perc,earning_miss_perc)
-
-
-# 
-# state_stat=data.frame(state.name=rownames(state.x77),
-#                       state.x77)
-# rownames(state_stat)=NULL
-# choice <- colnames(state_stat)[-1]

@@ -10,7 +10,6 @@ shinyUI(dashboardPage(skin = 'green',
             menuItem('Data',tabName = 'data',icon = icon('columns')), 
             menuItem('About',tabName = 'about',icon = icon('address-book'))
         )
-        
     ),
     dashboardBody(
         tabItems(
@@ -80,17 +79,9 @@ shinyUI(dashboardPage(skin = 'green',
                                          # fluidRow(
                                          #     column(width = 6, selectizeInput("selected3","Stocks", choices = unique(MyDat$symbol)))
                                          # ),
-                                         # 
-                                         # fluidRow(
-                                         #     column(width = 3,
-                                         #            selectizeInput("selection3","Stock",choices = unique(MyDat$symbol))
-                                         # )),
                                          
                                          fluidRow(
                                              box(DT::dataTableOutput('earning_perc'),width = 6),
-                                             
-                                             
-                                             
                                              box(DT::dataTableOutput('earning'),width = 6))
                                          ),
                                          
@@ -99,7 +90,6 @@ shinyUI(dashboardPage(skin = 'green',
                                          fluidPage(
                                              fluidRow(box(plotOutput('correlation'),width = 5)),
                                              fluidRow(box(DT::dataTableOutput('cortable'),width = 5)))
-                                             
                                          )
                                 )
                                 ),
@@ -122,20 +112,14 @@ shinyUI(dashboardPage(skin = 'green',
                               <p><a href="https://www.linkedin.com/in/lingge-danny-zeng-a6aa4350/>LinkedIn</a></p>
                               <p><a href="https://github.com/DannyLGZ/shinyproject">Shiny Project Code</a></p>
                               <p>E-mail: linggezeng@gmail.com</font></p>
-                              <p><br></p>'))
-
+                              <p><br></p>')),
+                        # column(6,
+                        #        HTML('<img src="danny.jpg", height="400px"    
+                        #         style="float:left"/>','<p style="color:black"></p>'))
                         
                     )
-                    
             )
-            
-            
         )
-        
-        
     ),
-    
-    
-    dashboardBody()
 )
 )
