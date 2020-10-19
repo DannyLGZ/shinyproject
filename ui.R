@@ -120,7 +120,7 @@ shinyUI(dashboardPage(skin = 'green',
                               </p>
                               <p>I am so interested in data science because number can tell me story which I never think about.</p>
                               <p><a href="https://www.linkedin.com/in/lingge-danny-zeng-a6aa4350/>LinkedIn</a></p>
-                              <p><a href="">R Shiny Project Code</a></p>
+                              <p><a href="https://github.com/DannyLGZ/shinyproject">R Shiny Project Code</a></p>
                               <p>E-mail: linggezeng@gmail.com</font></p>
                               <p><br></p>'))
 
