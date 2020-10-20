@@ -15,76 +15,42 @@ shinyUI(dashboardPage(skin = 'green',
         tabItems(
             tabItem(tabName = 'intro',
                     HTML('
-            <p><center>
-            <img src="https://images.pexels.com/photos/210607/pexels-photo-210607.jpeg?cs=srgb&dl=pexels-pixabay-210607.jpg&fm=jpg", height="400px"    
-            style="float:center"/>
-            </p>
-            
             <p><center><b><font size="8">Visualizing SP500 and FAANG Stock Price</font></b></center></p>
             <p><center><font size="6">Analyze relationship between SP500 and FAANG and how earning reports drive stock price</font></center></p>
-            <p><center><font size="4">by Ling Ge Zeng</font></center></p>
-
             <p><pre><center><font size="4">
             <b>Objective</b>: The purpose of this project is to visualize the return of interest of SP500 and FAANG stocks from 2010 to 2020. 
             Facebook(FB),Apple(AAPL), Amazon(AMZN), Netflix(NFLX), and Alphabet(GOOG), are used to represent the US economy and have risen so 
             much among all other stocks. This project helps us to understand the correlation of SP500 and FAANG, the interrelation among FAANG 
             stocks, and how quaterly earning reports affect the stock prices.  
-            </font></center></pre></p>
-            
-            
-            
-            <p><center><font size="4">
-            <table style="width: 1000px; height: 300px;">
-            <tbody>
-            <tr>
-            <td style="width: 250px;"><u><b>Tab Name</b></u></td>
-            <td style="width: 750px;"><u><b>Description</b></u></td>
-            </tr>
-            <tr>
-            <td style="width: 300px;"><b>Introduction</b></td>
-            <td style="width: 700px;">Introduction page.</td>
-            </tr>
-            <tr>
-            <td style="width: 300;"><b>Analysis<br>  -- Graph<br><br>  -- Correlation</b></td>
-            <td style="width: 700;">Comparing SP500 with FAANG<br>graph_1:stock price with earning date, green line means beat, red means miss.
-            <br>graph_2:return of interest.<br>Correlation: shows correlation with each stocks.</td>
-            </tr>
-            <tr>
-            <td style="width: 300;"><b>Data</b></td>
-            <td style="width: 700;">Dataset of stock price.</td>
-            </tr>
-            <tr>
-            <td style="width: 300;"><b>About</b></td>
-            <td style="width: 700;">About me, links to my Github and contact information.</td>
-            </tr>
-            </tbody>
-            </table>
-            </center></p></font>
-                 ')
+            </font></center></pre></p>')
 
             ),
             
             tabItem(tabName = 'analysis',            
                     tabsetPanel(type = 'tabs',
-                                tabPanel("Graph",
+                                tabPanel("ROI",
                                          fluidRow(
                                              column(width = 6, checkboxGroupInput("selected2","Stocks",choices = unique(MyDat$symbol),selected = 'SP500')
                                              )
-                                             ),
+                                         ),
+                                         fluidRow(box(dygraphOutput('dygraph2'),width = 12)),
+                                         
+                                         fluidRow(box(dygraphOutput('dygraph1'),width = 12))
+                                         ),
+                                
+                                tabPanel("Earning Report",
+                                         fluidRow( 
+                                             column(width = 6, selectizeInput("selected1","Stocks",choices = unique(MyDat$symbol),selected = 'AAPL')
+                                                          ),
+                                             column(width = 6, selectizeInput("selected3","Earning",choices = unique(MyDat$Beat_Miss))
+                                                )
+                                         ),
                                          fluidRow(box(dygraphOutput('dygraph'),width = 12)),
-                                         
-                                         fluidRow(box(dygraphOutput('dygraph1'),width = 12)),
-                                         
-                                         
-                                         # fluidRow(
-                                         #     column(width = 6, selectizeInput("selected3","Stocks", choices = unique(MyDat$symbol)))
-                                         # ),
-                                         
                                          fluidRow(
                                              box(DT::dataTableOutput('earning_perc'),width = 6),
-                                             box(DT::dataTableOutput('earning'),width = 6))
-                                         ),
-                                         
+                                             column(6,plotlyOutput('plot1')))
+                                             #box(DT::dataTableOutput('earning'),width = 6))
+                                ),
                                          
                                 tabPanel("Correlation",
                                          fluidPage(
