@@ -48,14 +48,17 @@ shinyUI(dashboardPage(skin = 'green',
                                          fluidRow(box(dygraphOutput('dygraph'),width = 12)),
                                          fluidRow(
                                              box(DT::dataTableOutput('earning_perc'),width = 6),
-                                             column(6,plotlyOutput('plot1')))
-                                             #box(DT::dataTableOutput('earning'),width = 6))
+                                             column(6,plotlyOutput('plot2')),
+                                             box(DT::dataTableOutput('earning'),width = 6))
                                 ),
                                          
                                 tabPanel("Correlation",
                                          fluidPage(
-                                             fluidRow(box(plotOutput('correlation'),width = 5)),
-                                             fluidRow(box(DT::dataTableOutput('cortable'),width = 5)))
+                                             fluidRow(box(plotOutput('correlation'),width = 6),
+                                                      box(plotOutput('correlation2'),width = 6)),
+                                             fluidRow(box(DT::dataTableOutput('cortable'),width = 5),
+                                                      box(DT::dataTableOutput('cortable2'),width = 5))
+                                         )
                                          )
                                 )
                                 ),

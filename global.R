@@ -27,4 +27,5 @@ earning = left_join(beat_up,beat_down) %>% left_join(.,miss_up) %>% left_join(.,
 earning[is.na(earning)]=0
 earning %>% mutate(beat_perc = round(beat_up/(beat_up + beat_down)*100,3),miss_perc = round(miss_down/(miss_up + miss_down)*100,3))->earning
 earning_perc = MyDat %>% filter(!is.na(Beat_Miss)) %>% mutate(diff = round((price2- price)/price,3))
+earning_perc %>% group_by(symbol,Beat_Miss) %>% mutate(avg1 = mean(diff[diff>0]),avg2 = mean(diff[diff<0])) -> earning_perc
 earning_perc2 = earning_perc %>% select(symbol,date,eps_est,eps,Beat_Miss,diff) %>% gather(key='key',value = 'value',-symbol,-date,-Beat_Miss)

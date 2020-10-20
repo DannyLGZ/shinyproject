@@ -33,10 +33,16 @@ function(input, output) {
         
     })
     
+    output$plot2 <- renderPlotly({
+        earning_perc %>% filter(symbol==input$selected1 & Beat_Miss==input$selected3) %>% ggplot(aes(x = date))+geom_bar(aes(y=diff),stat = "identity")+
+            geom_point(aes(y= eps,color = 'eps')) + geom_point(aes(y= eps_est ,color = 'eps_est')) + geom_hline(aes(yintercept = avg1)) + 
+            geom_hline(aes(yintercept = avg2))
+    })
+    
     
     
     output$earning_perc <- DT::renderDataTable({
-        datatable(earning_perc[,c(-3:-8,-14,-15)])
+        datatable(earning_perc[,c(-3:-8,-14,-15,-17,-18)])
         
     })
     
@@ -49,8 +55,17 @@ function(input, output) {
         
     })
     
+    output$correlation2 <- renderPlot({
+        ggcorrplot(cor(stock_ts1,use = "pairwise.complete.obs"))
+        
+    })
+    
     output$cortable <- DT::renderDataTable({
         cor(stock_ts,use = "pairwise.complete.obs")
+    })
+    
+    output$cortable2 <- DT::renderDataTable({
+        cor(stock_ts1,use = "pairwise.complete.obs")
     })
     
     output$table <- DT::renderDataTable(
